@@ -26,7 +26,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 번호 증가 전략이 데이터베이스를 따라간다.
 	private  int id; // 서비스하는 프로그램이 아니라서 int로 함
 	
-	@Column(unique = true) // 제약조건
+	@Column(length = 20, unique = true) // 제약조건
 	private String username;
 	private String password;
 	
