@@ -13,6 +13,7 @@ function update(userId, event) {
 		dataType: "json" // 타입을 알려주면 json 데이터를 자바스크립트로 파싱해서 응답을 받는다.(res)
 	}).done(res=>{
 		console.log("update 성공");
+		location.href = `/user/${userId}`
 	}).fail(error=>{
 		console.log("update 실패");
 	});
