@@ -27,6 +27,7 @@ public class ControllerExceptionHandler {
 	// 데이터로 응답
 	@ExceptionHandler(CustomValidationApiException.class) // RuntimeException이 발동하는 모든 Exception을 이 함수가 가로챈다. 
 	public ResponseEntity<CMRespDto<?>> vaildationApiException(CustomValidationApiException e) {
+		System.out.println("======================== 나 실행됨???????????/");
 		return new ResponseEntity<>(new CMRespDto<>(-1, e.getMessage(), e.getErrorMap()), HttpStatus.BAD_REQUEST);
 	}
 }

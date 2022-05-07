@@ -9,6 +9,10 @@ public class CustomValidationApiException extends RuntimeException {
 
 	private Map<String, String> errorMap;
 	
+	public CustomValidationApiException(String message) {
+		super(message); // message를 부모한테 던짐
+	}
+	
 	public CustomValidationApiException(String message, Map<String, String> errorMap) {
 		super(message); // message를 부모한테 던짐
 		this.errorMap = errorMap;

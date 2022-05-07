@@ -16,7 +16,10 @@ function update(userId, event) {
 		console.log("성공", res);
 		location.href = `/user/${userId}`
 	}).fail(error=>{ // HttpStatus 상태코드 200번대가 아닐 때
-		alert(JSON.stringify(error.responseJSON.data)); // JSON.stringify : 자바스크립트 오브젝트를 JSON 문자열로 변환
-		console.log("실패", error.responseJSON.data);
+		if(error.data == null) {
+			alert(error.responseJSON.message);
+		}else{
+			alert(JSON.stringify(error.responseJSON.data)); // JSON.stringify : 자바스크립트 오브젝트를 JSON 문자열로 변환
+		}
 	});
 }
