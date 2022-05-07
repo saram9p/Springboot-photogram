@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// super 삭제 - 기존 시큐리티가 가지고 있는 기능이 다 비활성화됨.
 		http.csrf().disable(); // csrf 토큰 비활성화
 		http.authorizeRequests()
-			.antMatchers("/", "/user/**", "/image/**", "/subscribe/**", "/comment/**").authenticated() // 해당 주소로 시작하게 되면 인증이 필요하다.
+			.antMatchers("/", "/user/**", "/image/**", "/subscribe/**", "/comment/**", "/api/**").authenticated() // 해당 주소로 시작하게 되면 인증이 필요하다.
 			.anyRequest().permitAll() // 그게 아닌 모든 요청은 허용
 			.and()
 			.formLogin() // form 태그가 있고 input 태그가 있는 form 로그인
