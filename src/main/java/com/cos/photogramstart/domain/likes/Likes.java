@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import com.cos.photogramstart.domain.image.Image;
@@ -38,6 +39,7 @@ public class Likes {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	// 무한 참조됨
 	@JoinColumn(name = "imageId")
 	@ManyToOne
 	private Image image; // 어떤 이미지를
@@ -48,6 +50,9 @@ public class Likes {
 	private User user;  // 누가
 	
 	private LocalDateTime createDate;
+	
+	@Transient // DB에 칼럼이 만들어지지 않는다.
+	private boolean likeState;
 	
 	@PrePersist // DB에 INSERT 되기 직전에 실행
 	public void createDate() {
