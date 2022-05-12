@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import com.cos.photogramstart.domain.image.Image;
@@ -50,9 +49,6 @@ public class Likes {
 	private User user;  // 누가
 	
 	private LocalDateTime createDate;
-	
-	@Transient // DB에 칼럼이 만들어지지 않는다.
-	private boolean likeState;
 	
 	@PrePersist // DB에 INSERT 되기 직전에 실행
 	public void createDate() {

@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
+import javax.persistence.Transient;
 
 import com.cos.photogramstart.domain.likes.Likes;
 import com.cos.photogramstart.domain.user.User;
@@ -47,6 +48,9 @@ public class Image { // N, 1
 	// 댓글
 	
 	private LocalDateTime createDate;
+	
+	@Transient // DB에 칼럼이 만들어지지 않는다.
+	private boolean likeState;
 	
 	@PrePersist
 	public void createDate() {
