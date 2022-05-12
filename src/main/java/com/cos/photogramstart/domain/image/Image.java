@@ -52,6 +52,9 @@ public class Image { // N, 1
 	@Transient // DB에 칼럼이 만들어지지 않는다.
 	private boolean likeState;
 	
+	@Transient
+	private int likeCount;
+	
 	@PrePersist
 	public void createDate() {
 		this.createDate = LocalDateTime.now();
