@@ -2,7 +2,7 @@
 function update(userId, event) {
 	event.preventDefault(); // 폼태그 액션을 막기!
 	
-	let data = $("#profileUpdate").serialize(); // form 태그가 들고 있는 모든 input 값들을 담을 수 있다.
+	let data = $("#profileUpdate").serialize(); // form 태그가 들고 있는 모든 input 값들을 담을 수 있다, key=value
 	
 	console.log(data);
 	

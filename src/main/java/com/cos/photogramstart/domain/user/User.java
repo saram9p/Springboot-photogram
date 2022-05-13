@@ -45,7 +45,7 @@ public class User {
 	private String phone; // 전화번호
 	private String gender; // 성별
 	
-	private String profileimageUrl; // 사진
+	private String profileImageUrl; // 사진
 	private String role; // 권한
 	
 	// 나는 연관관계의 주인이 아니다. 그러므로 테이블에 칼럼을 만들지마.
