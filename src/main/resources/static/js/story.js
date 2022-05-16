@@ -10,8 +10,6 @@
 // (0) 현재 로긴한 사용자 아이디
 let principalId = $("#principalId").val();
 
-alert(principalId);
-
 // (1) 스토리 로드하기
 let page = 0;
 
@@ -202,7 +200,8 @@ function addComment(imageId) {
 		commentList.prepend(content);
 		
 	}).fail(error=>{
-		console.log("오류", error);
+		console.log("오류", error.responseJSON.data.content);
+		alert(error.responseJSON.data.content);
 	});
 
 	commentInput.val(""); // 인풋 필드를 깨끗하게 비워준다.
