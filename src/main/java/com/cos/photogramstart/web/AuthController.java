@@ -5,8 +5,6 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -25,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class AuthController {
 
 	
-	private static final Logger log = LoggerFactory.getLogger(AuthController.class);
+	//private static final Logger log = LoggerFactory.getLogger(AuthController.class);
 
 	private final AuthService authService; // final이 걸려있으면 무조건 생성자가 실행될때 혹은 객체가 만들어질 때 초기화를 해줘야한다.
 	
@@ -56,12 +54,14 @@ public class AuthController {
 			}
 			throw new CustomValidationException("유효성 검사 실패함", errorMap);
 		}else {
-			log.info(signupDto.toString());
+			//log.info(signupDto.toString());
 			// User <- SignupDto
 			User user = signupDto.toEntity();
-			log.info(user.toString());
-			User userEntity = authService.회원가입(user);
-			System.out.println(userEntity);
+			//log.info(user.toString());
+			authService.회원가입(user);
+			//System.out.println(userEntity);
+			
+			// 로그를 남기는 후처리!!
 			return "auth/signin";
 		}
 
