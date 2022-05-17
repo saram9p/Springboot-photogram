@@ -35,6 +35,11 @@ spring:
     user:
       name: test
       password: 1234   
+    oauth2:      client:        registration:          facebook:
+            client-id: 332504192342133 # 앱 ID
+            client-secret: 52e40f7023d4035b4e233b7718457e45 # 앱 시크릿 코드
+            scope: # 어떤 데이터를 받을지에 대한 범위            - public_profile
+            - email
 
 file:
   path: D:/spring_project/upload/
